@@ -1,0 +1,100 @@
+version: '3'
+
+services:
+  traefik:
+    image: traefik:2.8
+    container_name: appwrite-traefik
+    command:
+      - --providers.docker=true
+      - --providers.docker.exposedByDefault=false
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./appwrite-traefik:/etc/traefik
+    networks:
+      - appwrite
+
+  appwrite:
+    image: appwrite/appwrite:1.4.3
+    container_name: appwrite
+    restart: unless-stopped
+    networks:
+      - appwrite
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.appwrite.rule=PathPrefix(`/`)
+      - traefik.http.routers.appwrite.entrypoints=web
+    volumes:
+      - ./appwrite-uploads:/storage/uploads:rw
+      - ./appwrite-config:/storage/config:rw
+      - ./appwrite-functions:/storage/functions:rw
+      - ./appwrite-cache:/storage/cache:rw
+    environment:
+      - _APP_ENV=production
+      - _APP_LOCALE=en
+      - _APP_CONSOLE_WHITELIST_ROOT=enabled
+      - _APP_CONSOLE_WHITELIST_EMAILS=
+      - _APP_CONSOLE_WHITELIST_IPS=
+      - _APP_SYSTEM_SECURITY_EMAIL_ADDRESS=
+      - _APP_REDIS_HOST=redis
+      - _APP_REDIS_PORT=6379
+      - _APP_DB_HOST=mariadb
+      - _APP_DB_PORT=3306
+      - _APP_DB_SCHEMA=appwrite
+      - _APP_DB_USER=user
+      - _APP_DB_PASS=password
+      - _APP_INFLUXDB_HOST=influxdb
+      - _APP_INFLUXDB_PORT=8086
+      - _APP_STATSD_HOST=telegraf
+      - _APP_STATSD_PORT=8125
+
+  mariadb:
+    image: mariadb:10.7
+    container_name: appwrite-mariadb
+    restart: unless-stopped
+    networks:
+      - appwrite
+    volumes:
+      - ./appwrite-mariadb:/var/lib/mysql:rw
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootsecretpassword
+      - MYSQL_DATABASE=appwrite
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+
+  redis:
+    image: redis:7.0.4-alpine
+    container_name: appwrite-redis
+    restart: unless-stopped
+    networks:
+      - appwrite
+    volumes:
+      - ./appwrite-redis:/data:rw
+
+  influxdb:
+    image: influxdb:1.8
+    container_name: appwrite-influxdb
+    restart: unless-stopped
+    networks:
+      - appwrite
+    volumes:
+      - ./appwrite-influxdb:/var/lib/influxdb:rw
+
+  telegraf:
+    image: telegraf:1.19
+    container_name: appwrite-telegraf
+    restart: unless-stopped
+    networks:
+      - appwrite
+    volumes:
+      - ./appwrite-telegraf:/etc/telegraf:rw
+
+networks:
+  appwrite:
+    name: appwrite
+

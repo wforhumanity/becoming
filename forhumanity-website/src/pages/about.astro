@@ -1,0 +1,115 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="About" description="About forHumanity.art - an artist collective building open tools for reflection, healing, and growth.">
+  <section class="about-hero py-16">
+    <div class="container">
+      <h1 class="text-center">About forHumanity.art</h1>
+      
+      <div class="about-content">
+        <div class="message-card">
+          <h2>A Message from Human #1</h2>
+          <p>
+            Hello! This if forHumanity an art collective, 
+            forHumanity.art began as a simple idea: what if we built technology that that worked with ai to 
+            prioritize reflection, healing, and growth over engagement, addiction, and profit?
+          </p>
+          
+          <p>
+            We believe in the power of small experiments, gentle technology, and 
+            human-centered design. We are building tools that we wish existed—tools that 
+            help us become more intentional, reflective, and connected to our values.
+          </p>
+          
+          <p>
+            This collective is open to anyone who shares these values. Whether you're a developer, designer, writer, or 
+            just someone who cares about these ideas, there's a place for you here.
+          </p>
+        </div>
+        
+        <div class="values-section">
+          <h2>Our Values</h2>
+          
+          <div class="values-grid">
+            <div class="value-card">
+              <h3>Transparency</h3>
+              <p>
+                We believe in open-source development, clear communication, and 
+                honest reflection. Our code, our process, and our thinking are all 
+                open for anyone to see and contribute to.
+              </p>
+            </div>
+            
+            <div class="value-card">
+              <h3>Curiosity</h3>
+              <p>
+                We approach problems with a spirit of experimentation and wonder. 
+                We're not afraid to try new things, learn from failure, and iterate 
+                on our ideas.
+              </p>
+            </div>
+            
+            <div class="value-card">
+              <h3>Care</h3>
+              <p>
+                We build technology with care—care for the people who use it, care 
+                for the communities it affects, and care for the world it exists in. 
+                We prioritize ethical sustainability over rapid growth.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="join-section text-center py-8">
+          <h2>Join Us</h2>
+          <p>
+            forHumanity.art is an open collective. We welcome contributors of all kinds—
+            developers, designers, writers, thinkers, and anyone who cares about building 
+            more humane technology.
+          </p>
+          
+          <a href="/contribute" class="btn mt-4">How to Contribute</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .about-content {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  
+  .message-card {
+    margin-bottom: var(--space-12);
+  }
+  
+  .values-section {
+    margin-bottom: var(--space-12);
+  }
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+  }
+  
+  .value-card {
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+  
+  .join-section {
+    margin-top: var(--space-12);
+  }
+  
+  @media (max-width: 768px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

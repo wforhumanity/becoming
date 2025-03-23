@@ -1,12 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'providers/service_providers.dart';
 import 'screens/home_screen.dart';
+import 'screens/onboarding_screen.dart';
 
 void main() async {
   // Ensure Flutter is initialized
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize Firebase
+  await Firebase.initializeApp();
   
   // Initialize SharedPreferences
   final prefs = await SharedPreferences.getInstance();
@@ -23,11 +28,17 @@ void main() async {
   );
 }
 
-class BecomingApp extends StatelessWidget {
+class BecomingApp extends ConsumerWidget {
   const BecomingApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Get SharedPreferences instance
+    final prefs = ref.watch(sharedPreferencesProvider);
+    
+    // Check if onboarding is completed
+    final onboardingCompleted = prefs.getBool('onboarding_completed') ?? false;
+    
     return MaterialApp(
       title: 'Becoming - Tiny Life Experiments',
       theme: ThemeData(
@@ -61,7 +72,7 @@ class BecomingApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const HomeScreen(),
+      home: onboardingCompleted ? const HomeScreen() : const OnboardingScreen(),
     );
   }
 }

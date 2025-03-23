@@ -1,0 +1,102 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Home">
+  <section class="hero py-16">
+    <div class="container text-center">
+      <h1>forHumanity.art</h1>
+      <p class="tagline">
+        We are an artist collective building open tools for reflection, healing, and growth.
+      </p>
+      
+      <div class="cta-buttons">
+        <a href="/projects" class="btn">Our Projects</a>
+        <a href="/philosophy" class="btn btn-secondary">Our Philosophy</a>
+        <a href="/contribute" class="btn btn-secondary">Contribute</a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="featured-project py-8">
+    <div class="container">
+      <h2 class="text-center">Featured Project</h2>
+      
+      <div class="card featured-card">
+        <h3>Becoming</h3>
+        <p>
+          An app designed to help users live more intentionally by creating, tracking, 
+          and reflecting on tiny life experiments. Based on the PACT framework 
+          (Purposeful, Actionable, Continuous, Trackable).
+        </p>
+        <a href="/projects/becoming" class="btn">Learn More</a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="mission py-8">
+    <div class="container">
+      <h2 class="text-center">Our Mission</h2>
+      
+      <div class="mission-content">
+        <p>
+          At forHumanity.art, we believe in experiments over goals, process over perfection, 
+          and contribution over control. We're building tools that help people reflect, 
+          heal, and grow in a calm, curious, and human-first way.
+        </p>
+        
+        <p>
+          Our projects are open-source, donation-supported, and built with ethical 
+          sustainability in mind. We're a non-profit collective of artists and technologists 
+          working together to create a more reflective, intentional world.
+        </p>
+        
+        <div class="text-center mt-4">
+          <a href="/about" class="btn">About Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+  }
+  
+  .tagline {
+    font-size: 1.5rem;
+    max-width: 36rem;
+    margin: 0 auto var(--space-8);
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .featured-card {
+    max-width: 48rem;
+    margin: var(--space-8) auto;
+  }
+  
+  .mission-content {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 40vh;
+    }
+    
+    .tagline {
+      font-size: 1.25rem;
+    }
+  }
+</style>

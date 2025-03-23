@@ -1,0 +1,161 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Contribute" description="How to contribute to forHumanity.art - an artist collective building open tools for reflection, healing, and growth.">
+  <section class="contribute-hero py-16">
+    <div class="container">
+      <h1 class="text-center">Contribute</h1>
+      <p class="text-center tagline">
+        Join us in building open tools for reflection, healing, and growth.
+      </p>
+      
+      <div class="contribute-content">
+        <div class="contribute-intro">
+          <p>
+            forHumanity.art is an open collective, and we welcome contributions from anyone 
+            who shares our values. Whether you're a developer, designer, writer, or just 
+            someone who cares about building more humane technology, there's a place for 
+            you here.
+          </p>
+          
+          <p>
+            We believe that the best tools are built by diverse communities with a shared 
+            vision. By contributing to forHumanity.art, you're helping to create a more 
+            reflective, intentional, and humane technological future.
+          </p>
+        </div>
+        
+        <div class="ways-to-contribute">
+          <h2>Ways to Contribute</h2>
+            
+            <div class="contribute-card">
+              <h3>Support</h3>
+              <p>
+                Help us sustain our work through financial contributions. As a non-profit, 
+                donation-supported collective, we rely on community support to continue 
+                building open tools for reflection, healing, and growth.
+              </p>
+              <p><em>Donation options coming soon</em></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="getting-started">
+          <h2>Getting Started</h2>
+          
+          <ol>
+            <li>
+              <strong>Explore our projects:</strong> Visit our <a href="/projects">Projects page</a> 
+              to learn about what we're working on.
+            </li>
+            <li>
+              <strong>Join our GitHub organization:</strong> Check out our 
+              <a href="https://github.com/forhumanity-org">GitHub repositories</a> and look for 
+              issues labeled "good first issue" to get started.
+            </li>
+            <li>
+              <strong>Reach out:</strong> Contact us at <a href="mailto:hello@forhumanity.art">hello@forhumanity.art</a> 
+              to introduce yourself and let us know how you'd like to contribute.
+            </li>
+            <li>
+              <strong>Follow our contribution guidelines:</strong> Each project has its own 
+              contribution guidelines in its README file. Please review these before contributing.
+            </li>
+          </ol>
+        </div>
+        
+        <div class="community-channels">
+          <h2>Community Channels</h2>
+          <p>
+            We're in the process of setting up community channels for discussion and collaboration. 
+            In the meantime, you can reach us via email or GitHub.
+          </p>
+          <p><em>Community channels coming soon</em></p>
+        </div>
+        
+        <div class="code-of-conduct">
+          <h2>Code of Conduct</h2>
+          <p>
+            We're committed to providing a welcoming and inclusive environment for all contributors. 
+            We expect all participants to adhere to our code of conduct, which promotes respect, 
+            empathy, and collaboration.
+          </p>
+          <p><em>Full code of conduct coming soon</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .tagline {
+    font-size: 1.25rem;
+    max-width: 36rem;
+    margin: 0 auto var(--space-12);
+  }
+  
+  .contribute-content {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  
+  .contribute-intro {
+    margin-bottom: var(--space-12);
+  }
+  
+  .ways-to-contribute {
+    margin-bottom: var(--space-12);
+  }
+  
+  .contribute-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+  }
+  
+  .contribute-card {
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contribute-card h3 {
+    margin-bottom: var(--space-2);
+  }
+  
+  .contribute-card p {
+    margin-bottom: var(--space-4);
+  }
+  
+  .contribute-card a {
+    margin-top: auto;
+  }
+  
+  .getting-started {
+    margin-bottom: var(--space-12);
+  }
+  
+  .getting-started ol {
+    margin-top: var(--space-4);
+    padding-left: var(--space-8);
+  }
+  
+  .getting-started li {
+    margin-bottom: var(--space-4);
+  }
+  
+  .community-channels, .code-of-conduct {
+    margin-bottom: var(--space-12);
+  }
+  
+  @media (max-width: 768px) {
+    .contribute-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

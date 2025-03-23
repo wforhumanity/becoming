@@ -1,0 +1,169 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Becoming" description="Becoming - A life experimentation app built on the PACT framework">
+  <section class="project-hero py-16">
+    <div class="container">
+      <h1 class="text-center">Becoming</h1>
+      <p class="text-center tagline">
+        A life experimentation app built on the PACT framework
+      </p>
+      
+      <div class="project-content">
+        <div class="project-overview">
+          <h2>What is Becoming?</h2>
+          <p>
+            Becoming is an iOS app designed to help users live more intentionally by creating, 
+            tracking, and reflecting on tiny life experiments. It's an alternative to traditional 
+            to-do lists, focusing on identity-building, reflection, and personal growth through 
+            light-touch, structured experimentation.
+          </p>
+          
+          <p>
+            The app guides users through creating "pacts" based on the PACT framework:
+          </p>
+          
+          <ul>
+            <li><strong>Purposeful:</strong> Aligned with personal interests and values</li>
+            <li><strong>Actionable:</strong> Specific actions within your control</li>
+            <li><strong>Continuous:</strong> Repeatable, light, low-stakes</li>
+            <li><strong>Trackable:</strong> Binary tracking (yes/no)</li>
+          </ul>
+          
+          <p>
+            Users can track their progress daily with simple yes/no tracking, and reflect on 
+            their experiences at the end of each experiment. The app also provides AI-generated 
+            suggestions for new experiments based on past experiences.
+          </p>
+        </div>
+        
+        <div class="project-inspiration">
+          <h2>Inspiration</h2>
+          <p>
+            Becoming is inspired by Anne-Laure Le Cunff's work on experimental mindsets and 
+            the PACT framework. It's designed for adults who are tired of rigid productivity 
+            systems, burned out on checklists and optimization, and looking for a gentler 
+            alternative to habit and to-do apps.
+          </p>
+          
+          <p>
+            The app encourages a mindset of curiosity over perfection, focusing on the process 
+            of becoming rather than achieving specific goals. It's about identity-based change, 
+            reflection, and growth.
+          </p>
+        </div>
+        
+        <div class="project-tech">
+          <h2>Technical Details</h2>
+          <p>
+            Becoming is built with:
+          </p>
+          
+          <ul>
+            <li><strong>Flutter:</strong> For cross-platform development (iOS, Android)</li>
+            <li><strong>Firebase:</strong> For authentication and data storage</li>
+            <li><strong>Riverpod:</strong> For state management</li>
+            <li><strong>OpenAI API:</strong> For AI-generated experiment suggestions</li>
+          </ul>
+          
+          <p>
+            The app follows a clean architecture approach with a focus on testability, 
+            maintainability, and scalability. It uses an API-first, testing-second, 
+            code-third approach to development.
+          </p>
+        </div>
+        
+        <div class="project-status">
+          <h2>Current Status</h2>
+          <p>
+            Becoming is currently in MVP development. The core features are being implemented, 
+            including:
+          </p>
+          
+          <ul>
+            <li>Creating and managing pacts</li>
+            <li>Daily tracking</li>
+            <li>End-of-experiment reflection</li>
+            <li>AI-generated suggestions</li>
+          </ul>
+          
+          <p>
+            The app will be available on iOS first, with Android support planned for the future.
+          </p>
+        </div>
+        
+        <div class="project-ethics">
+          <h2>Ethical Considerations</h2>
+          <p>
+            Becoming is designed with ethical considerations at its core:
+          </p>
+          
+          <ul>
+            <li><strong>Privacy-focused:</strong> User data is stored securely and not shared with third parties</li>
+            <li><strong>AI as a gentle companion:</strong> AI suggestions are presented as options, not directives</li>
+            <li><strong>Non-addictive design:</strong> No engagement-maximizing dark patterns</li>
+            <li><strong>Open-source:</strong> Code is available for review and contribution</li>
+          </ul>
+        </div>
+        
+        <div class="project-links text-center py-8">
+          <h2>Get Involved</h2>
+          <p>
+            Becoming is an open-source project, and we welcome contributions from developers, 
+            designers, writers, and anyone interested in building more humane technology.
+          </p>
+          
+          <div class="links-grid">
+            <a href="https://github.com/forhumanity-org/becoming" class="btn">GitHub Repository</a>
+            <a href="/contribute" class="btn btn-secondary">How to Contribute</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .tagline {
+    font-size: 1.25rem;
+    max-width: 36rem;
+    margin: 0 auto var(--space-12);
+  }
+  
+  .project-content {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  
+  .project-content > div {
+    margin-bottom: var(--space-12);
+  }
+  
+  .project-content h2 {
+    margin-bottom: var(--space-4);
+  }
+  
+  .project-content ul {
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-6);
+  }
+  
+  .project-content li {
+    margin-bottom: var(--space-2);
+  }
+  
+  .links-grid {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-6);
+  }
+  
+  @media (max-width: 768px) {
+    .links-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

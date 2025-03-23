@@ -1,0 +1,163 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Projects" description="Projects by forHumanity.art - open-source tools for reflection, healing, and growth.">
+  <section class="projects-hero py-16">
+    <div class="container">
+      <h1 class="text-center">Our Projects</h1>
+      <p class="text-center tagline">
+        Open-source tools for reflection, healing, and growth.
+      </p>
+      
+      <div class="projects-grid">
+        <!-- Active Project: Becoming -->
+        <div class="project-card active">
+          <div class="project-status">Active</div>
+          <h2>Becoming</h2>
+          <p>
+            An app designed to help users live more intentionally by creating, tracking, 
+            and reflecting on tiny life experiments. Based on the PACT framework 
+            (Purposeful, Actionable, Continuous, Trackable).
+          </p>
+          <p class="tech-stack">
+            <strong>Tech Stack:</strong> Flutter, Firebase, Riverpod, OpenAI
+          </p>
+          <div class="project-links">
+            <a href="/projects/becoming" class="btn">Learn More</a>
+            <a href="https://github.com/forhumanity-org/becoming" class="btn btn-secondary">GitHub</a>
+          </div>
+        </div>
+        
+        <!-- Coming Soon: openTherapy -->
+        <div class="project-card coming-soon">
+          <div class="project-status">Coming Soon</div>
+          <h2>openTherapy</h2>
+          <p>
+            An open-source platform for accessible mental health resources and 
+            self-guided therapeutic tools. Designed to make evidence-based mental 
+            health practices more accessible to everyone.
+          </p>
+          <p class="tech-stack">
+            <strong>Planned Tech:</strong> React, Node.js, MongoDB
+          </p>
+        </div>
+        
+        <!-- Coming Soon: Blanket -->
+        <div class="project-card coming-soon">
+          <div class="project-status">Coming Soon</div>
+          <h2>Blanket</h2>
+          <p>
+            A gentle, privacy-focused journaling app with built-in reflection prompts 
+            and mood tracking. Designed to help users process emotions and build 
+            self-awareness.
+          </p>
+          <p class="tech-stack">
+            <strong>Planned Tech:</strong> Flutter, SQLite, Local-first
+          </p>
+        </div>
+        
+        <!-- Coming Soon: Resume Matcher -->
+        <div class="project-card coming-soon">
+          <div class="project-status">Coming Soon</div>
+          <h2>Resume Matcher</h2>
+          <p>
+            An ethical tool to help job seekers optimize their resumes for ATS systems 
+            without keyword stuffing or misrepresentation. Designed to level the playing 
+            field in the job search process.
+          </p>
+          <p class="tech-stack">
+            <strong>Planned Tech:</strong> Python, NLP, Web Interface
+          </p>
+        </div>
+      </div>
+      
+      <div class="contribute-cta text-center py-8">
+        <h2>Have an Idea?</h2>
+        <p>
+          We're always open to new project ideas that align with our mission. 
+          If you have an idea for a tool that promotes reflection, healing, or growth, 
+          we'd love to hear from you.
+        </p>
+        <a href="/contribute" class="btn mt-4">Get Involved</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .tagline {
+    font-size: 1.25rem;
+    max-width: 36rem;
+    margin: 0 auto var(--space-12);
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
+  }
+  
+  .project-card {
+    position: relative;
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .project-card.active {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-card.coming-soon {
+    opacity: 0.8;
+  }
+  
+  .project-status {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .project-card.active .project-status {
+    background-color: var(--color-primary);
+    color: white;
+  }
+  
+  .project-card.coming-soon .project-status {
+    background-color: var(--color-secondary);
+    color: white;
+  }
+  
+  .tech-stack {
+    margin-top: auto;
+    padding-top: var(--space-4);
+    font-size: 0.875rem;
+  }
+  
+  .project-links {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+  
+  .contribute-cta {
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
