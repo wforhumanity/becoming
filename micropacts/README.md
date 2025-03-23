@@ -53,6 +53,8 @@ The app follows an API-first, testing-second, code-third approach:
 
 - **Framework:** Flutter
 - **State Management:** Riverpod
+- **Authentication:** Firebase Auth with Apple Sign-In
+- **Cloud Storage:** Cloud Firestore
 - **Local Storage:** SharedPreferences
 - **AI Integration:** OpenAI API
 - **Testing:** Flutter Test
@@ -65,7 +67,8 @@ lib/
 ├── components/
 │   └── pact_card.dart
 ├── models/
-│   └── pact_model.dart
+│   ├── pact_model.dart
+│   └── user_model.dart
 ├── providers/
 │   ├── ai_providers.dart
 │   ├── pact_providers.dart
@@ -74,12 +77,19 @@ lib/
 │   ├── ai_suggestion_screen.dart
 │   ├── create_pact_screen.dart
 │   ├── home_screen.dart
+│   ├── login_screen.dart
+│   ├── onboarding_screen.dart
+│   ├── profile_screen.dart
 │   ├── reflection_screen.dart
 │   └── tracker_screen.dart
 ├── services/
 │   ├── ai_service.dart
 │   ├── ai_service_interface.dart
+│   ├── auth_service_interface.dart
+│   ├── firebase_auth_service.dart
+│   ├── firestore_storage_service.dart
 │   ├── mock_ai_service.dart
+│   ├── mock_auth_service.dart
 │   ├── mock_pact_service.dart
 │   ├── mock_storage_service.dart
 │   ├── pact_service.dart
@@ -100,8 +110,23 @@ The app includes comprehensive tests:
 
 1. Clone the repository
 2. Run `flutter pub get` to install dependencies
-3. Add your OpenAI API key in `lib/providers/service_providers.dart`
-4. Run `flutter run` to start the app
+3. Set up Firebase:
+   - Create a new Firebase project
+   - Add iOS and Android apps to the project
+   - Download and add the configuration files
+   - Enable Authentication (Email/Password and Apple Sign-In)
+   - Create a Firestore database
+4. Add your OpenAI API key in `lib/providers/service_providers.dart`
+5. Run `flutter run` to start the app
+
+## 🔐 Authentication
+
+The app supports:
+- Email/password authentication
+- Sign in with Apple
+- Anonymous usage (data stored locally)
+
+User data is securely stored in Firestore and synchronized across devices when signed in.
 
 ## 📝 License
 
