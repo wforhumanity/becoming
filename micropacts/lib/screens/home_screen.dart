@@ -4,8 +4,11 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../components/pact_card.dart';
 import '../models/pact_model.dart';
 import '../providers/pact_providers.dart';
+import '../providers/service_providers.dart';
 import 'ai_suggestion_screen.dart';
 import 'create_pact_screen.dart';
+import 'login_screen.dart';
+import 'profile_screen.dart';
 
 class HomeScreen extends HookConsumerWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -34,6 +37,13 @@ class HomeScreen extends HookConsumerWidget {
                 ),
               );
             },
+          ),
+          
+          // Profile button
+          IconButton(
+            icon: const Icon(Icons.account_circle),
+            tooltip: 'Profile',
+            onPressed: () => _navigateToProfile(context, ref),
           ),
         ],
       ),
@@ -74,6 +84,31 @@ class HomeScreen extends HookConsumerWidget {
         child: const Icon(Icons.add),
       ),
     );
+  }
+  
+  /// Navigate to profile or login screen
+  void _navigateToProfile(BuildContext context, WidgetRef ref) {
+    final userAsync = ref.read(currentUserProvider);
+    
+    userAsync.whenData((user) {
+      if (user == null) {
+        // Navigate to login screen
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const LoginScreen(),
+          ),
+        );
+      } else {
+        // Navigate to profile screen
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ProfileScreen(),
+          ),
+        );
+      }
+    });
   }
   
   /// Build the active pacts tab
