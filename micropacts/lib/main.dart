@@ -1,18 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'providers/service_providers.dart';
 import 'screens/home_screen.dart';
 
-void main() {
-  runApp(const ProviderScope(child: MyApp()));
+void main() async {
+  // Ensure Flutter is initialized
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize SharedPreferences
+  final prefs = await SharedPreferences.getInstance();
+  
+  // Run the app with providers
+  runApp(
+    ProviderScope(
+      overrides: [
+        // Override the SharedPreferences provider with the instance
+        sharedPreferencesProvider.overrideWithValue(prefs),
+      ],
+      child: const BecomingApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class BecomingApp extends StatelessWidget {
+  const BecomingApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My App',
+      title: 'Becoming - Tiny Life Experiments',
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
